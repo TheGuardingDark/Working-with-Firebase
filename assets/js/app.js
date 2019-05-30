@@ -1,6 +1,11 @@
 
 
 
+
+$(document).ready(function() {
+
+
+
 var firebaseConfig = {
     apiKey: "AIzaSyDXwOxJB_4ZFg9t_OoVXmMe8D8TbbIiFlQ",
     authDomain: "testing-8c302.firebaseapp.com",
@@ -62,11 +67,9 @@ var minCell = $("<td>").text(minTill);
 row.append(nameCell, destCell, freqCell, firstCell, nextCell, minCell);
 $("tbody").append(row);
 
-})
+});
 
 
-
-
- 
+});
     
   

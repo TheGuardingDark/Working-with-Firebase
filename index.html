@@ -16,11 +16,38 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
+<style>
+
+.form {
+  margin-top: 45px;
+}
+
+.two {
+  padding-left: 10px;
+}
+
+.submit {
+  padding-left: 300px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+
+
+
+
+</style>
+
 
 <body>
     <div class="container">
+      <div class="row title justify-content-center">
         <h2>Train Times</h2>
+      </div>
+      <div class="row subtitle justify-content-center">
         <p>What time dat train tho?</p>
+      </div>
+      <div class="row"> 
         <table class="table">
           <thead>
             <tr>
@@ -36,20 +63,43 @@
           </tbody>
         </table>
       </div>
-      <div>
-        <form id="trainForm">
-            <label for=trainName>Train Name</label>
-                <input type="text" id="trainName"><br>
-            <label for=destination>Destination</label>
-                <input type="text" id="destination"><br>
-            <label for=firstTrain>First Train Time (hh:mm military time)</label>
-                <input type="text" id="firstTrain"><br>
-            <label for=frequency>Frequency(min)</label>
-                <input type="text" id="frequency"><br>
+      <div class="row form">
+        <div class="col-md-8 offset-md-2">
+          <form>
+            <div class="row">
+              <div class="col">
+                <div class="form-group">
+                  <label for=trainName>Train Name</label>
+                    <input type="text" id="trainName">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <label for=destination>Destination</label>
+                    <input type="text" id="destination">
+                </div>
+              </div>
+            </div>
+            <div class="row two">
+              <div class="col">
+                <div class="form-group">
+                  <label for=frequency>Frequency</label>
+                    <input type="text" id="firstTrain" placeholder="min">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group first">
+                  <label for=firstTrain>First Train</label>
+                    <input type="text" id="frequency" placeholder="HH:MM military time">
+                </div>
+              </div>
+            </div>
+            <div class="row submit">
                 <input id="addTrain" type="submit" value="Submit">
+            </div>
         </form>
       </div>
-
+      </div>
 
 
 
