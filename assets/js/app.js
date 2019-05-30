@@ -15,19 +15,58 @@ var firebaseConfig = {
   
 var database = firebase.database();
 
+$("#addTrain").on("click", function(event) {
+  event.preventDefault();
+
+  var trainName = $("#trainName").val().trim();
+  var destination = $("#destination").val().trim();
+  var freq = $("#frequency").val().trim();
+  var first = $("#firstTrain").val().trim();
+
+  database.ref("/trains").push({
+    name: trainName,
+    dest: destination,
+    freq: freq,
+    first: first,
+  });
+
+
+  $("#trainName").val("");
+  $("#destination").val("");
+  $("#frequency").val("");
+  $("#firstTrain").val("");
+
+});
+
+
+database.ref("/trains").on("child_added", function(snapshot) {
+
+var freq = snapshot.val().freq;
+var firstTrain = snapshot.val().first;
+var firstTrFormat = moment(firstTrain, "HH:mm").subtract(1, "years");
+var diff = moment().diff(moment(firstTrFormat), "minutes");
+var till = diff % freq;
+var minTill = freq - till;
+var nextTrain = moment().add(minTill, "minutes");
+var arrival = moment(nextTrain).format("hh:mma");
+
+
+
+var row = $("<tr>");
+var nameCell = $("<td>").text(snapshot.val().name);
+var destCell = $("<td>").text(snapshot.val().dest);
+var freqCell = $("<td>").text(snapshot.val().freq);
+var firstCell = $("<td>").text(snapshot.val().first);
+var nextCell = $("<td>").text(arrival);
+var minCell = $("<td>").text(minTill);
+row.append(nameCell, destCell, freqCell, firstCell, nextCell, minCell);
+$("tbody").append(row);
+
+})
 
 
 
 
- $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(response => {
-    var row = $("<tr>");
-    var titleCell = $("<td>").text(response.Title);
-    var yearCell = $("<td>").text(response.Year);
-    var actorCell = $("<td>").text(response.Actors);
-    row.append(titleCell, yearCell, actorCell);
-    $("tbody").append(row);
-
-  })
+ 
+    
+  
