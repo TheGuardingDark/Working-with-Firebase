@@ -1,0 +1,123 @@
+
+
+
+.form {
+    margin-top: 45px;
+  }
+  
+  form {
+    padding-top: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .addT {
+    font-size: 17px;
+  }
+  
+  .submit {
+    padding-left: 300px;
+    margin-top: 10px;
+    margin-bottom: 25px;
+  }
+  
+  .card-header {
+    background: #30343e;
+  }
+  
+  .table {
+    margin-bottom: 0;
+  }
+  
+  .card-transparent {
+   max-height: 326px;
+  }
+  
+  .card-img-overlay {
+    left: 133px;
+    top: 96px;
+  }
+  
+  h2, h5 {
+    color: #000;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+  }
+  
+  @media only screen and (max-width: 1133px) and (min-width: 992px) {
+    .card-img-overlay {
+      left: 103px;
+      top: 71px;
+    }
+  
+    h2 {
+      font-size: 43px;
+    }
+  
+    h5 {
+      font-size: 20px;
+      padding-left: 10px;
+  }}
+  
+  @media only screen and (max-width: 991px) and (min-width: 980px) {
+    .card-img-overlay {
+      left: 103px;
+      top: 71px;
+    }
+  
+    h2 {
+      font-size: 43px;
+    }
+  
+    h5 {
+      font-size: 20px;
+      padding-left: 10px;
+  
+  }}
+  @media only screen and (max-width: 979px) and (min-width: 769px) {
+  
+    .card-img-overlay {
+      left: 77px;
+      top: 44px;
+    }
+  
+    h2 {
+      font-size: 31px;
+    }
+  
+    h5 {
+      font-size: 15px;
+      padding-left: 4px;
+  
+  }}
+  @media only screen and (max-width: 768px) and (min-width: 641px) {
+  
+    .card-img-overlay {
+      left: 74px;
+      top: 54px;
+    }
+  
+    h2 {
+      font-size: 32px;
+    }
+  
+    h5 {
+      font-size: 15px;
+      padding-left: 5px;
+  
+  }}
+  @media only screen and (max-width: 640px) {
+  
+    .card-img-overlay {
+      left: 122px;
+      top: 96px;
+    }
+  
+    h2 {
+      font-size: 3rem;
+    }
+  
+    h5 {
+      font-size: 1.5rem;    
+  
+  }}
+  

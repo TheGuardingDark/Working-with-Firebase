@@ -49,11 +49,17 @@ database.ref("/trains").on("child_added", function(snapshot) {
 var freq = snapshot.val().freq;
 var firstTrain = snapshot.val().first;
 var firstTrFormat = moment(firstTrain, "HH:mm").subtract(1, "years");
+console.log(firstTrFormat);
 var diff = moment().diff(moment(firstTrFormat), "minutes");
+console.log(diff);
 var till = diff % freq;
+console.log(till);
 var minTill = freq - till;
+console.log(minTill);
 var nextTrain = moment().add(minTill, "minutes");
+console.log(nextTrain)
 var arrival = moment(nextTrain).format("hh:mma");
+console.log(arrival);
 
 
 
