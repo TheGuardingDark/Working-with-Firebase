@@ -1,11 +1,11 @@
 
 
-
+// assures function loads after page
 
 $(document).ready(function() {
 
 
-
+// reference to firebase 
 var firebaseConfig = {
     apiKey: "AIzaSyDXwOxJB_4ZFg9t_OoVXmMe8D8TbbIiFlQ",
     authDomain: "testing-8c302.firebaseapp.com",
@@ -18,16 +18,21 @@ var firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig);
   
+  // setting local firebase variable
 var database = firebase.database();
+
+// add onclick event to submit button
 
 $("#addTrain").on("click", function(event) {
   event.preventDefault();
 
+  // grabs value of train form fields
   var trainName = $("#trainName").val().trim();
   var destination = $("#destination").val().trim();
   var freq = $("#frequency").val().trim();
   var first = $("#firstTrain").val().trim();
 
+  // stores train form values to firebase
   database.ref("/trains").push({
     name: trainName,
     dest: destination,
@@ -35,7 +40,7 @@ $("#addTrain").on("click", function(event) {
     first: first,
   });
 
-
+// clears train form 
   $("#trainName").val("");
   $("#destination").val("");
   $("#frequency").val("");
@@ -44,8 +49,11 @@ $("#addTrain").on("click", function(event) {
 });
 
 
+// add event to add trains from firebase to page
 database.ref("/trains").on("child_added", function(snapshot) {
 
+
+  // calculates how far away the next train is and when it will arrive
 var freq = snapshot.val().freq;
 var firstTrain = snapshot.val().first;
 var firstTrFormat = moment(firstTrain, "HH:mm").subtract(1, "years");
@@ -62,7 +70,7 @@ var arrival = moment(nextTrain).format("hh:mma");
 // console.log(arrival);
 
 
-
+// prints train information to the table
 var row = $("<tr>");
 var nameCell = $("<td>").text(snapshot.val().name);
 var destCell = $("<td>").text(snapshot.val().dest);
